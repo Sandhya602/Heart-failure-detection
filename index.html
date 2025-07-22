@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Failure Prediction</title>
+  <style>
+    body {
+      background: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      margin: auto;
+      display: inline-block;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 250px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Heart Failure Prediction</h1>
+  <form method="POST">
+    <input type="text" name="age" placeholder="Age" required><br>
+    <input type="text" name="anaemia" placeholder="Anaemia (0 or 1)" required><br>
+    <input type="text" name="creatinine_phosphokinase" placeholder="Creatinine Phosphokinase" required><br>
+    <input type="text" name="diabetes" placeholder="Diabetes (0 or 1)" required><br>
+    <input type="text" name="ejection_fraction" placeholder="Ejection Fraction" required><br>
+    <input type="text" name="high_blood_pressure" placeholder="High Blood Pressure (0 or 1)" required><br>
+    <input type="text" name="platelets" placeholder="Platelets" required><br>
+    <input type="text" name="serum_creatinine" placeholder="Serum Creatinine" required><br>
+    <input type="text" name="serum_sodium" placeholder="Serum Sodium" required><br>
+    <input type="text" name="sex" placeholder="Sex (0 or 1)" required><br>
+    <input type="text" name="smoking" placeholder="Smoking (0 or 1)" required><br>
+    <input type="text" name="time" placeholder="Follow-up Time" required><br>
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if prediction is not none %}
+    <div class="result">
+      Prediction: The patient is {% if prediction == 1 %}<strong>likely</strong>{% else %}<strong>not likely</strong>{% endif %} to experience heart failure.
+    </div>
+  {% endif %}
+</body>
+</html>
 
